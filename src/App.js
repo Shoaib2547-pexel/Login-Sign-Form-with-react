@@ -20,6 +20,7 @@ function App() {
     let { name, value } = event.target;
 
     setFormData({...formData,[name]:value})
+    
     // setFormData((prev) => ({
     //   ...prev,
     //   [name]: value
@@ -70,15 +71,15 @@ function App() {
 
   return (
     <>
-      <div className="App min-h-screen flex items-center justify-center bg-[#06142e]">
+      <div className="App h-svh flex items-center justify-center bg-[#06142e]">
         <div // Login Container
-          className="p-[30px] bg-[#0c1831] rounded-lg shadow-neon-blue w-[600px] overflow-hidden relative">
+          className="p-[30px] bg-[#0c1831] rounded-lg shadow-neon-blue w-[350px] m-2 md:h-auto h-[300px] md:w-[600px] overflow-hidden relative">
           <motion.h1  // Heading
             key={isLogin ? 'logins' : 'signup'}
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
-            className="font-bold absolute left-[10%] top-[10px] text-[30px] text-white font-serif mb-6 mt-6"
+            className="font-bold absolute left-[10%] md:top-[10px] top-0 text-[30px] text-white font-serif mb-6 mt-6"
           >
             {isLogin ? 'Login' : 'Sign Up'}
           </motion.h1>
@@ -88,9 +89,9 @@ function App() {
           initial={{opacity:0 ,x:-20}}
           animate={{opacity:1 ,x:0}}
           transition={{duration:0.5}}
-          className="mt-3" 
+          className="md:mt-3" 
           onSubmit={handleSubmit}>
-            <div className="flex flex-col py-12">
+            <div className="flex flex-col md:py-12 pt-6">
               <div className="flex items-center border-b border-[#00c3ff] w-[50%]">
                 <input
                   type="text"
@@ -140,13 +141,13 @@ function App() {
             </h1>
           </motion.div>
 
-          <div className="flex text-white mt-4">
-            <p className="pr-2">
+          <div className="flex md:pl-5 text-white md:mt-4 mt-8">
+            <p className="pr-2 md:text-[16px] text-[12px]">
               {isLogin ? "Don't have an account?" : 'Already have an account?'}
             </p>
             <button
               type="button"
-              className="text-[#00c3ff]"
+              className="text-[#00c3ff] md:text-[16px] text-[12px]"
               onClick={() => setIsLogin(!isLogin)}
             >
               {isLogin ? 'Sign Up' : 'Login'}
